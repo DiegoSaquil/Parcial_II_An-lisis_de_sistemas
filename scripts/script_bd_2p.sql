@@ -33,7 +33,7 @@ CREATE TABLE `Tbl_Aplicacion` (
   PRIMARY KEY (`Pk_Id_Aplicacion`),
   KEY `Fk_Aplicacion_Reporte` (`Fk_Id_Reporte_Aplicacion`),
   CONSTRAINT `Fk_Aplicacion_Reporte` FOREIGN KEY (`Fk_Id_Reporte_Aplicacion`) REFERENCES `Tbl_Reportes` (`Pk_Id_Reporte`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `Tbl_Asignacion_Modulo_Aplicacion` (
   KEY `Fk_AsigAplicacion` (`Fk_Id_Aplicacion`),
   CONSTRAINT `Fk_AsigAplicacion` FOREIGN KEY (`Fk_Id_Aplicacion`) REFERENCES `Tbl_Aplicacion` (`Pk_Id_Aplicacion`),
   CONSTRAINT `Fk_AsigModulo` FOREIGN KEY (`Fk_Id_Modulo`) REFERENCES `Tbl_Modulo` (`Pk_Id_Modulo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `Tbl_Asignar_Perfil_Cliente` (
   KEY `Fk_AsigCliente` (`Fk_Id_Cliente`),
   CONSTRAINT `Fk_AsigCliente` FOREIGN KEY (`Fk_Id_Cliente`) REFERENCES `Tbl_Cliente` (`Pk_Id_Cliente`),
   CONSTRAINT `Fk_AsigPerfil` FOREIGN KEY (`Fk_Id_Perfil`) REFERENCES `Tbl_Perfil` (`Pk_Id_Perfil`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `Tbl_Bitacora` (
   KEY `Fk_Bitacora_Aplicacion` (`Fk_Id_Aplicacion`),
   CONSTRAINT `Fk_Bitacora_Aplicacion` FOREIGN KEY (`Fk_Id_Aplicacion`) REFERENCES `Tbl_Aplicacion` (`Pk_Id_Aplicacion`),
   CONSTRAINT `Fk_Bitacora_Usuario` FOREIGN KEY (`Fk_Id_Usuario`) REFERENCES `Tbl_Usuario` (`Pk_Id_Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=631 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=631 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +152,7 @@ CREATE TABLE `Tbl_Bloqueo_Usuario` (
   KEY `Fk_Bloqueo_Bitacora` (`Fk_Id_Bitacora`),
   CONSTRAINT `Fk_Bloqueo_Bitacora` FOREIGN KEY (`Fk_Id_Bitacora`) REFERENCES `Tbl_Bitacora` (`Pk_Id_Bitacora`),
   CONSTRAINT `Fk_Bloqueo_Usuario` FOREIGN KEY (`Fk_Id_Usuario`) REFERENCES `Tbl_Usuario` (`Pk_Id_Usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +180,7 @@ CREATE TABLE `Tbl_Cliente` (
   `Cmp_Estado_Cliente` bit(1) DEFAULT NULL,
   `Cmp_Nacionalidad_Cliente` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Pk_Id_Cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,7 +207,7 @@ CREATE TABLE `Tbl_Correo_Cliente` (
   PRIMARY KEY (`Pk_Id_Correo`),
   KEY `Fk_Correo_Cliente` (`Fk_Id_Cliente`),
   CONSTRAINT `Fk_Correo_Cliente` FOREIGN KEY (`Fk_Id_Cliente`) REFERENCES `Tbl_Cliente` (`Pk_Id_Cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,7 +238,7 @@ CREATE TABLE `Tbl_Empleado` (
   `Cmp_Fecha_Nacimiento_Empleado` date DEFAULT NULL,
   `Cmp_Fecha_Contratacion__Empleado` date DEFAULT NULL,
   PRIMARY KEY (`Pk_Id_Empleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,7 +264,7 @@ CREATE TABLE `Tbl_Modulo` (
   `Cmp_Descripcion_Modulo` varchar(50) DEFAULT NULL,
   `Cmp_Estado_Modulo` bit(1) NOT NULL,
   PRIMARY KEY (`Pk_Id_Modulo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +291,7 @@ CREATE TABLE `Tbl_Nit_Cliente` (
   PRIMARY KEY (`Pk_Id_Nit`),
   KEY `Fk_Nit_Cliente` (`Fk_Id_Cliente`),
   CONSTRAINT `Fk_Nit_Cliente` FOREIGN KEY (`Fk_Id_Cliente`) REFERENCES `Tbl_Cliente` (`Pk_Id_Cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,7 +317,7 @@ CREATE TABLE `Tbl_Numero_Cliente` (
   PRIMARY KEY (`Pk_Id_Numero`),
   KEY `Fk_Numero_Cliente` (`Fk_Id_Cliente`),
   CONSTRAINT `Fk_Numero_Cliente` FOREIGN KEY (`Fk_Id_Cliente`) REFERENCES `Tbl_Cliente` (`Pk_Id_Cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -343,7 +343,7 @@ CREATE TABLE `Tbl_Perfil` (
   `Cmp_Estado_Perfil` bit(1) NOT NULL,
   `Cmp_Tipo_Perfil` int DEFAULT NULL,
   PRIMARY KEY (`Pk_Id_Perfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -378,7 +378,7 @@ CREATE TABLE `Tbl_Permiso_Perfil_Aplicacion` (
   CONSTRAINT `Fk_PermisoPerfil` FOREIGN KEY (`Fk_Id_Perfil`) REFERENCES `Tbl_Perfil` (`Pk_Id_Perfil`),
   CONSTRAINT `Fk_PermisoPerfil_Aplic` FOREIGN KEY (`Fk_Id_Aplicacion`) REFERENCES `Tbl_Aplicacion` (`Pk_Id_Aplicacion`),
   CONSTRAINT `Fk_PermisoPerfil_Modulo` FOREIGN KEY (`Fk_Id_Modulo`) REFERENCES `Tbl_Modulo` (`Pk_Id_Modulo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -413,7 +413,7 @@ CREATE TABLE `Tbl_Permiso_Usuario_Aplicacion` (
   CONSTRAINT `Fk_PermisoAplicacion` FOREIGN KEY (`Fk_Id_Aplicacion`) REFERENCES `Tbl_Aplicacion` (`Pk_Id_Aplicacion`),
   CONSTRAINT `Fk_PermisoModulo` FOREIGN KEY (`Fk_Id_Modulo`) REFERENCES `Tbl_Modulo` (`Pk_Id_Modulo`),
   CONSTRAINT `Fk_PermisoUsuario` FOREIGN KEY (`Fk_Id_Usuario`) REFERENCES `Tbl_Usuario` (`Pk_Id_Usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -439,7 +439,7 @@ CREATE TABLE `Tbl_Reportes` (
   `Cmp_Ruta_Reporte` varchar(50) DEFAULT NULL,
   `Cmp_Fecha_Reporte` date DEFAULT NULL,
   PRIMARY KEY (`Pk_Id_Reporte`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -469,7 +469,7 @@ CREATE TABLE `Tbl_Salario_Empleado` (
   PRIMARY KEY (`Pk_Id_Salario`),
   KEY `Fk_Salario_Empleado` (`Fk_Id_Empleado`),
   CONSTRAINT `Fk_Salario_Empleado` FOREIGN KEY (`Fk_Id_Empleado`) REFERENCES `Tbl_Empleado` (`Pk_Id_Empleado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -499,7 +499,7 @@ CREATE TABLE `Tbl_Token_RestaurarContrasena` (
   PRIMARY KEY (`Pk_Id_Token`),
   KEY `Fk_Token_Usuario` (`Fk_Id_Usuario`),
   CONSTRAINT `Fk_Token_Usuario` FOREIGN KEY (`Fk_Id_Usuario`) REFERENCES `Tbl_Usuario` (`Pk_Id_Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -532,7 +532,7 @@ CREATE TABLE `Tbl_Usuario` (
   PRIMARY KEY (`Pk_Id_Usuario`),
   KEY `Fk_Usuario_Empleado` (`Fk_Id_Empleado`),
   CONSTRAINT `Fk_Usuario_Empleado` FOREIGN KEY (`Fk_Id_Empleado`) REFERENCES `Tbl_Empleado` (`Pk_Id_Empleado`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -559,7 +559,7 @@ CREATE TABLE `Tbl_Usuario_Perfil` (
   KEY `Fk_UsuarioPerfil_Perfil` (`Fk_Id_Perfil`),
   CONSTRAINT `Fk_UsuarioPerfil_Perfil` FOREIGN KEY (`Fk_Id_Perfil`) REFERENCES `Tbl_Perfil` (`Pk_Id_Perfil`),
   CONSTRAINT `Fk_UsuarioPerfil_Usuario` FOREIGN KEY (`Fk_Id_Usuario`) REFERENCES `Tbl_Usuario` (`Pk_Id_Usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -582,4 +582,3 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2025-09-26 15:47:30
-tbl_aplicacion
